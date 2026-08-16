@@ -1,4 +1,19 @@
 {
+  "date_ranges": [
+    { "type_id": 1, "start": 1, "end": 3 },
+    { "type_id": 2, "start": 4, "end": 6 },
+    { "type_id": 3, "start": 7, "end": 9 },
+    { "type_id": 4, "start": 10, "end": 12 },
+    { "type_id": 5, "start": 13, "end": 15 },
+    { "type_id": 6, "start": 16, "end": 18 },
+    { "type_id": 7, "start": 19, "end": 21 },
+    { "type_id": 8, "start": 22, "end": 24 },
+    { "type_id": 9, "start": 25, "end": 27 },
+    { "type_id": 10, "start": 28, "end": 29 },
+    { "type_id": 11, "start": 30, "end": 30 },
+    { "type_id": 12, "start": 31, "end": 31 }
+  ],
+
   "1": {
     "id": 1,
     "name": "Тип 1",
