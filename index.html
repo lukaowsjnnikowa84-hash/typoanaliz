@@ -1,94 +1,91 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>ТипоАнализ</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <style>
-        body {
-            margin: 0;
-            font-family: "Segoe UI", sans-serif;
-            background: #0f0f0f;
-            color: #d4af37;
-            text-align: center;
-            padding: 40px 20px;
-        }
+      body {
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+        background: #0f0f0f;
+        color: #d4af37;
+        text-align: center;
+        padding: 40px 20px;
+      }
 
-        h1 {
-            font-size: 32px;
-            margin-bottom: 30px;
-            color: #d4af37;
-            text-shadow: 0 0 10px rgba(212,175,55,0.4);
-        }
+      h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #d4af37;
+        text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+      }
 
-        .container {
-            max-width: 600px;
-            margin: auto;
-            background: rgba(255,255,255,0.03);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(212,175,55,0.2);
-        }
+      .container {
+        max-width: 600px;
+        margin: auto;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+      }
 
-        input[type="date"] {
-            width: 90%;
-            padding: 12px;
-            font-size: 18px;
-            border-radius: 8px;
-            border: 1px solid #d4af37;
-            background: #1a1a1a;
-            color: #d4af37;
-        }
+      input[type="date"] {
+        width: 90%;
+        padding: 12px;
+        font-size: 18px;
+        border-radius: 8px;
+        border: 1px solid #d4af37;
+        background: #1a1a1a;
+        color: #d4af37;
+      }
 
-        button {
-            margin-top: 20px;
-            padding: 12px 25px;
-            font-size: 18px;
-            border: none;
-            border-radius: 8px;
-            background: #d4af37;
-            color: #0f0f0f;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+      button {
+        margin-top: 20px;
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        background: #d4af37;
+        color: #0f0f0f;
+        cursor: pointer;
+        transition: 0.3s;
+      }
 
-        button:hover {
-            background: #f0d878;
-        }
+      button:hover {
+        background: #f0d878;
+      }
 
-        .result {
-            margin-top: 30px;
-            text-align: left;
-            line-height: 1.6;
-        }
+      .result {
+        margin-top: 30px;
+        text-align: left;
+        line-height: 1.6;
+      }
 
-        .result h2 {
-            color: #f0d878;
-        }
+      .result h2 {
+        color: #f0d878;
+      }
 
-        .divider {
-            height: 1px;
-            background: #d4af37;
-            margin: 20px 0;
-            opacity: 0.4;
-        }
+      .divider {
+        height: 1px;
+        background: #d4af37;
+        margin: 20px 0;
+        opacity: 0.4;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <h1>ТипоАнализ</h1>
 
     <div class="container">
-        <input type="date" id="birthdate">
-        <button onclick="calculateType()">Определить тип</button>
+      <input type="date" id="birthdate" />
+      <button onclick="calculateType()">Определить тип</button>
 
-        <div id="result" class="result"></div>
+      <div id="result" class="result"></div>
     </div>
 
     <script src="script.js"></script>
-
-</body>
+  </body>
 </html>
-

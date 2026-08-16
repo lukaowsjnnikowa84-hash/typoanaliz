@@ -1,26 +1,26 @@
 async function loadData() {
-    const response = await fetch("data.json");
-    return await response.json();
+  const response = await fetch("data.json");
+  return await response.json();
 }
 
 function getTypeIdByDate(date, dateRanges) {
-    const day = date.getDate();
+  const day = date.getDate();
 
-    for (const range of dateRanges) {
-        const [start, end] = range.range.split("-").map(Number);
+  for (const range of dateRanges) {
+    const [start, end] = range.range.split("-").map(Number);
 
-        if (end) {
-            if (day >= start && day <= end) return range.type_id;
-        } else {
-            if (day === start) return range.type_id;
-        }
+    if (end) {
+      if (day >= start && day <= end) return range.type_id;
+    } else {
+      if (day === start) return range.type_id;
     }
+  }
 
-    return null;
+  return null;
 }
 
 function renderResult(typeData) {
-    return `
+  return `
         <h2>Тип ${typeData.id}: ${typeData.name}</h2>
 
         <div class="divider"></div>
@@ -45,33 +45,33 @@ function renderResult(typeData) {
         <p><strong>Близкие типы:</strong></p>
         <ul>
             ${typeData.close_types
-                .map(t => `<li>Тип ${t.id}: ${t.reason}</li>`)
-                .join("")}
+              .map((t) => `<li>Тип ${t.id}: ${t.reason}</li>`)
+              .join("")}
         </ul>
     `;
 }
 
 async function calculateType() {
-    const birthInput = document.getElementById("birthdate").value;
+  const birthInput = document.getElementById("birthdate").value;
 
-    if (!birthInput) {
-        document.getElementById("result").innerHTML =
-            "<p>Пожалуйста, выберите дату рождения.</p>";
-        return;
-    }
+  if (!birthInput) {
+    document.getElementById("result").innerHTML =
+      "<p>Пожалуйста, выберите дату рождения.</p>";
+    return;
+  }
 
-    const birthDate = new Date(birthInput);
-    const data = await loadData();
+  const birthDate = new Date(birthInput);
+  const data = await loadData();
 
-    const typeId = getTypeIdByDate(birthDate, data.date_ranges);
+  const typeId = getTypeIdByDate(birthDate, data.date_ranges);
 
-    if (!typeId) {
-        document.getElementById("result").innerHTML =
-            "<p>Тип не найден. Проверьте дату.</p>";
-        return;
-    }
+  if (!typeId) {
+    document.getElementById("result").innerHTML =
+      "<p>Тип не найден. Проверьте дату.</p>";
+    return;
+  }
 
-    const typeData = data.types.find(t => t.id === typeId);
+  const typeData = data.types.find((t) => t.id === typeId);
 
-    document.getElementById("result").innerHTML = renderResult(typeData);
+  document.getElementById("result").innerHTML = renderResult(typeData);
 }
