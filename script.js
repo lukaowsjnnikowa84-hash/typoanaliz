@@ -143,6 +143,14 @@ function renderChildrenResult(typeData) {
 
       <div class="child-divider"></div>
 
+      <p><strong>Сферы проявления ребёнка:</strong> ${typeData.child_domains.join(", ")}</p>
+
+      <div class="child-divider"></div>
+
+      <p><strong>Профессиональные сферы:</strong> ${typeData.professional_domains.join(", ")}</p>
+
+      <div class="child-divider"></div>
+
       <p><strong>Во взрослом возрасте часто бывают:</strong> ${typeData.adult_roles.join(", ")}</p>
     </div>
   `;
@@ -173,6 +181,7 @@ async function calculateChildrenType() {
   }
 
   const typeData = data.types.find((t) => t.type === typeId);
+  const icon = childIcons[typeData.type];
 
   document.getElementById("child_result").innerHTML =
     renderChildrenResult(typeData);
@@ -208,4 +217,4 @@ function showChild() {
 
   document.querySelectorAll(".switcher button")[1].classList.add("active");
   document.querySelectorAll(".switcher button")[0].classList.remove("active");
-} 
+}
