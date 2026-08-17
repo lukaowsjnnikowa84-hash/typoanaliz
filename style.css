@@ -140,12 +140,14 @@ button:hover {
 
 /* краткое описание */
 .child-short {
-  font-size: 16px;
-  color: #6a4a00;
-  margin-top: -5px;
-  margin-bottom: 10px;
-  opacity: 0.9;
+  font-size: 17px;
+  color: #7a4a00;
+  margin-top: 8px;
+  margin-bottom: 14px;
+  opacity: 0.95;
+  font-weight: 500;
 }
+
 .child-button {
   background: #ffcc66;
   border: none;
