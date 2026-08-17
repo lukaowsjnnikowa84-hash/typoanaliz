@@ -128,6 +128,8 @@ function renderChildrenResult(typeData) {
         Тип ${typeData.type} — ${typeData.name}
       </h2>
 
+      <p class="child-short">${typeData.short_description}</p>
+
       <div class="child-divider"></div>
 
       <p><strong>Эмоции:</strong> ${typeData.emotions.join(", ")}</p>

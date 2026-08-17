@@ -138,6 +138,14 @@ button:hover {
   border-radius: 2px;
 }
 
+/* краткое описание */
+.child-short {
+  font-size: 16px;
+  color: #6a4a00;
+  margin-top: -5px;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
 .child-button {
   background: #ffcc66;
   border: none;
