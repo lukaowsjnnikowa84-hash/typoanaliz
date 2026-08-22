@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Взрослый типоанализ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Стили -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <h1>Взрослый типоанализ</h1>
+
+    <div class="container">
+      <!-- Ввод даты -->
+      <label>Дата рождения:</label>
+      <br /><br />
+      <input type="date" id="birthdate" />
+      <br />
+      <button onclick="calculateType()">Определить тип</button>
+
+      <!-- Результат -->
+      <div id="result" style="margin-top: 25px"></div>
+
+      <div class="divider"></div>
+
+      <!-- Совместимость -->
+      <h2 style="color: #d4af37; margin-top: 30px">Совместимость</h2>
+
+      <label>Дата рождения 1:</label>
+      <br />
+      <input type="date" id="birthdate1" />
+      <br /><br />
+
+      <label>Дата рождения 2:</label>
+      <br />
+      <input type="date" id="birthdate2" />
+      <br />
+
+      <button onclick="calculateCompatibility()">
+        Рассчитать совместимость
+      </button>
+
+      <div class="divider"></div>
+
+      <!-- Идеальный партнёр -->
+      <h2 style="color: #d4af37; margin-top: 30px">Идеальный партнёр</h2>
+
+      <label>Дата рождения:</label>
+      <br />
+      <input type="date" id="birthdate1" />
+      <br />
+
+      <button onclick="calculateIdealPartner()">
+        Показать идеального партнёра
+      </button>
+    </div>
+
+    <!-- Скрипт -->
+    <script src="script.js"></script>
+  </body>
+</html>

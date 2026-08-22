@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Детский типоанализ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Стили -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <h1>Детский типоанализ</h1>
+
+    <div class="container">
+      <!-- Ввод даты -->
+      <label>Дата рождения ребёнка:</label>
+      <br /><br />
+      <input type="date" id="child_birthdate" />
+      <br />
+      <button onclick="calculateChildrenType()">Определить тип</button>
+
+      <!-- Результат -->
+      <div id="child_result" style="margin-top: 25px"></div>
+
+      <!-- Выбор вручную -->
+      <h3 style="margin-top: 35px; color: #d4af37">Выбрать тип вручную:</h3>
+
+      <div>
+        <button class="child-button" onclick="showChildType(1)">Тип 1</button>
+        <button class="child-button" onclick="showChildType(2)">Тип 2</button>
+        <button class="child-button" onclick="showChildType(3)">Тип 3</button>
+        <button class="child-button" onclick="showChildType(4)">Тип 4</button>
+        <button class="child-button" onclick="showChildType(5)">Тип 5</button>
+        <button class="child-button" onclick="showChildType(6)">Тип 6</button>
+        <button class="child-button" onclick="showChildType(7)">Тип 7</button>
+        <button class="child-button" onclick="showChildType(8)">Тип 8</button>
+        <button class="child-button" onclick="showChildType(9)">Тип 9</button>
+        <button class="child-button" onclick="showChildType(10)">Тип 10</button>
+        <button class="child-button" onclick="showChildType(11)">Тип 11</button>
+        <button class="child-button" onclick="showChildType(12)">Тип 12</button>
+      </div>
+    </div>
+
+    <!-- Скрипт -->
+    <script src="script.js"></script>
+  </body>
+</html>

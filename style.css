@@ -167,3 +167,187 @@ button:hover {
   box-shadow: 0 6px 14px rgba(255, 180, 80, 0.5);
   transform: translateY(-2px);
 }
+/* Карточка совместимости */
+.compat-card {
+  background: #fff7e0; /* тёплый кремовый фон */
+  border-radius: 18px;
+  padding: 24px 28px;
+  margin-top: 20px;
+  box-shadow: 0 6px 18px rgba(240, 200, 120, 0.35); /* золотистая тень */
+  border: 2px solid #e8c980; /* мягкая золотистая рамка */
+  color: #5a3e00; /* тёплый коричневый текст */
+  line-height: 1.55;
+  font-size: 17px;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Заголовок */
+.compat-card h2 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 24px;
+  color: #4a3200;
+  font-weight: 700;
+  text-align: center;
+}
+.compat-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.compat-icon {
+  font-size: 48px;
+  background: #fff3d0;
+  padding: 14px 18px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(240, 200, 120, 0.35);
+  margin: 0 10px;
+  transition: 0.3s ease;
+}
+
+.compat-icon:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(240, 200, 120, 0.45);
+}
+
+.compat-plus {
+  font-size: 32px;
+  color: #a67c00;
+  font-weight: 700;
+}
+
+/* Разделитель */
+.compat-divider {
+  height: 2px;
+  background: linear-gradient(to right, #e8c980, #f7e7c0, #e8c980);
+  margin: 18px 0;
+  border-radius: 2px;
+}
+
+/* Подписи блоков */
+.compat-card strong {
+  color: #4a3200;
+  font-weight: 700;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ============================
+   ДЕТСКИЙ ПОЛНЫЙ АНАЛИЗ (вкладки)
+============================ */
+
+.child-analysis {
+  margin-top: 25px;
+  background: linear-gradient(135deg, #fff7e6, #ffe9c4);
+  padding: 22px 26px;
+  border-radius: 18px;
+  border: 2px solid #f3c26b;
+  box-shadow: 0 6px 18px rgba(255, 200, 120, 0.45);
+  color: #5a3e00;
+  text-align: left;
+}
+
+/* Заголовок */
+.child-analysis .header h2 {
+  font-size: 26px;
+  margin-bottom: 5px;
+  color: #d48b00;
+}
+
+.child-analysis .header p {
+  color: #7a4a00;
+  margin-bottom: 20px;
+}
+
+/* Вкладки */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  padding: 8px 12px;
+  border: none;
+  background: #ffcc66;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #5a3e00;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(255, 200, 120, 0.4);
+  transition: 0.25s;
+}
+
+.tabs button:hover {
+  background: #ffb833;
+  transform: translateY(-2px);
+}
+
+.tabs button.active {
+  background: #d48b00;
+  color: #fff;
+}
+
+/* Содержимое вкладок */
+.tab-block {
+  display: none;
+  padding: 10px 0;
+}
+
+.tab-block.active {
+  display: block;
+}
+
+.tab-block ul {
+  padding-left: 20px;
+}
+
+.tab-block li {
+  margin-bottom: 6px;
+  color: #5a3e00;
+}
+
+/* Будущее ребёнка */
+#future h3 {
+  margin-top: 15px;
+  color: #d48b00;
+}
+
+#future ul li {
+  margin-bottom: 6px;
+}
+/* ============================
+   ГЛАВНОЕ МЕНЮ — КНОПКИ
+============================ */
+
+.menu-button {
+  display: block;
+  text-decoration: none;
+  background: #d4af37;
+  color: #0f0f0f;
+  padding: 18px 25px;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
+  transition: 0.3s ease;
+}
+
+.menu-button:hover {
+  background: #f0d878;
+  box-shadow: 0 10px 24px rgba(212, 175, 55, 0.45);
+  transform: translateY(-3px);
+}
