@@ -204,7 +204,7 @@ async function calculateChildrenType() {
 
   if (!birthInput) {
     document.getElementById("child_result").innerHTML =
-      "<p>Пожалуйста, выберите дату рождения ребёнка.</p>";
+      "<p>Пожаложалуйста, выберите дату рождения ребёнка.</p>";
     return;
   }
 
@@ -242,24 +242,4 @@ function showChildType(typeId) {
     .querySelector('.tabs button[data-tab="profile"]')
     .classList.add("active");
   document.getElementById("profile").classList.add("active");
-}
-
-/* ============================
-   ПЕРЕКЛЮЧАТЕЛЬ МОДУЛЕЙ
-============================ */
-
-function showAdult() {
-  document.querySelector(".container-adult").style.display = "block";
-  document.querySelector(".container-child").style.display = "none";
-
-  document.querySelectorAll(".switcher button")[0].classList.add("active");
-  document.querySelectorAll(".switcher button")[1].classList.remove("active");
-}
-
-function showChild() {
-  document.querySelector(".container-adult").style.display = "none";
-  document.querySelector(".container-child").style.display = "block";
-
-  document.querySelectorAll(".switcher button")[1].classList.add("active");
-  document.querySelectorAll(".switcher button")[0].classList.remove("active");
 }
