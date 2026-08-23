@@ -1,32 +1,92 @@
 /* ========================= */
+/* ПРЕМИАЛЬНАЯ ШАПКА */
+/* ========================= */
+
+.site-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+
+  background: linear-gradient(
+    180deg,
+    rgba(212, 175, 55, 0.08),
+    rgba(15, 15, 15, 0)
+  );
+}
+
+.logo-link {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.logo-link:hover {
+  transform: translateY(-3px);
+}
+
+.site-title {
+  margin-top: 10px;
+}
+
+/* ========================= */
 /* ОБЩИЙ СТИЛЬ САЙТА */
 /* ========================= */
 
 body {
-  margin: 0;
-  font-family: "Segoe UI", sans-serif;
+  font-family: "Cormorant Garamond", serif;
   background: #0f0f0f;
   color: #d4af37;
+  margin: 0;
   text-align: center;
   padding: 40px 20px;
+}
+.logo {
+  width: 120px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.45));
+}
+
+h1,
+h2 {
+  background: linear-gradient(
+    90deg,
+    rgba(212, 175, 55, 0.15),
+    rgba(212, 175, 55, 0.05)
+  );
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: inline-block;
+
+  color: #d4af37;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
 }
 
 h1 {
   font-size: 32px;
   margin-bottom: 30px;
-  color: #d4af37;
-  text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
 }
+
+/* ========================= */
+/* КОНТЕЙНЕР */
+/* ========================= */
 
 .container {
   max-width: 600px;
   margin: auto;
   background: rgba(255, 255, 255, 0.03);
   padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+  border-radius: 16px;
+  border: 1px solid #3a3a3a;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
   margin-bottom: 40px;
 }
+
+/* ========================= */
+/* ПОЛЯ ВВОДА */
+/* ========================= */
 
 input[type="date"] {
   width: 90%;
@@ -36,23 +96,40 @@ input[type="date"] {
   border: 1px solid #d4af37;
   background: #1a1a1a;
   color: #d4af37;
+  margin-top: 10px;
 }
 
+/* ========================= */
+/* ПРЕМИУМ КНОПКИ */
+/* ========================= */
+
 button {
-  margin-top: 20px;
-  padding: 12px 25px;
-  font-size: 18px;
-  border: none;
-  border-radius: 8px;
-  background: #d4af37;
-  color: #0f0f0f;
+  background: #2a2a2a;
+  color: #d4af37;
+  border: 1px solid #8c6f2f;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 16px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.25s ease;
+  margin-top: 10px;
 }
 
 button:hover {
-  background: #f0d878;
+  background: #3a3a3a;
+  color: #f5d98c;
+  border-color: #d4af37;
+  transform: translateY(-2px);
 }
+
+button:active {
+  transform: translateY(0);
+  background: #1f1f1f;
+}
+
+/* ========================= */
+/* РАЗДЕЛИТЕЛЬ */
+/* ========================= */
 
 .divider {
   height: 1px;
@@ -62,28 +139,17 @@ button:hover {
 }
 
 /* ========================= */
-/* ПЕРЕКЛЮЧАТЕЛЬ */
-/* ========================= */
-
-.switcher {
-  margin-bottom: 30px;
-}
-
-.switcher button {
-  background: #333;
-  color: #d4af37;
-  border: 1px solid #d4af37;
-  margin: 5px;
-}
-
-.switcher button.active {
-  background: #d4af37;
-  color: #0f0f0f;
-}
-
-/* ========================= */
 /* ДЕТСКИЕ КАРТОЧКИ */
 /* ========================= */
+
+.tab-block {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.tab-block.active {
+  opacity: 1;
+}
 
 .child-card {
   background: linear-gradient(135deg, #fff7e6, #ffe9c4);
@@ -138,7 +204,6 @@ button:hover {
   border-radius: 2px;
 }
 
-/* краткое описание */
 .child-short {
   font-size: 17px;
   color: #7a4a00;
@@ -167,85 +232,10 @@ button:hover {
   box-shadow: 0 6px 14px rgba(255, 180, 80, 0.5);
   transform: translateY(-2px);
 }
-/* Карточка совместимости */
-.compat-card {
-  background: #fff7e0; /* тёплый кремовый фон */
-  border-radius: 18px;
-  padding: 24px 28px;
-  margin-top: 20px;
-  box-shadow: 0 6px 18px rgba(240, 200, 120, 0.35); /* золотистая тень */
-  border: 2px solid #e8c980; /* мягкая золотистая рамка */
-  color: #5a3e00; /* тёплый коричневый текст */
-  line-height: 1.55;
-  font-size: 17px;
-  animation: fadeIn 0.5s ease;
-}
 
-/* Заголовок */
-.compat-card h2 {
-  margin-top: 0;
-  margin-bottom: 14px;
-  font-size: 24px;
-  color: #4a3200;
-  font-weight: 700;
-  text-align: center;
-}
-.compat-icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 14px;
-}
-
-.compat-icon {
-  font-size: 48px;
-  background: #fff3d0;
-  padding: 14px 18px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(240, 200, 120, 0.35);
-  margin: 0 10px;
-  transition: 0.3s ease;
-}
-
-.compat-icon:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(240, 200, 120, 0.45);
-}
-
-.compat-plus {
-  font-size: 32px;
-  color: #a67c00;
-  font-weight: 700;
-}
-
-/* Разделитель */
-.compat-divider {
-  height: 2px;
-  background: linear-gradient(to right, #e8c980, #f7e7c0, #e8c980);
-  margin: 18px 0;
-  border-radius: 2px;
-}
-
-/* Подписи блоков */
-.compat-card strong {
-  color: #4a3200;
-  font-weight: 700;
-}
-
-/* Анимация появления */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-/* ============================
-   ДЕТСКИЙ ПОЛНЫЙ АНАЛИЗ (вкладки)
-============================ */
+/* ========================= */
+/* ДЕТСКИЙ ПОЛНЫЙ АНАЛИЗ */
+/* ========================= */
 
 .child-analysis {
   margin-top: 25px;
@@ -258,7 +248,6 @@ button:hover {
   text-align: left;
 }
 
-/* Заголовок */
 .child-analysis .header h2 {
   font-size: 26px;
   margin-bottom: 5px;
@@ -270,7 +259,6 @@ button:hover {
   margin-bottom: 20px;
 }
 
-/* Вкладки */
 .tabs {
   display: flex;
   flex-wrap: wrap;
@@ -301,7 +289,6 @@ button:hover {
   color: #fff;
 }
 
-/* Содержимое вкладок */
 .tab-block {
   display: none;
   padding: 10px 0;
@@ -320,34 +307,176 @@ button:hover {
   color: #5a3e00;
 }
 
-/* Будущее ребёнка */
-#future h3 {
-  margin-top: 15px;
-  color: #d48b00;
+/* ========================= */
+/* ВЗРОСЛЫЙ АНАЛИЗ */
+/* ========================= */
+
+.adult-card {
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 14px;
+  border: 1px solid #3a3a3a;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+  color: #e6e6e6;
+  margin-top: 25px;
+  animation: fadeIn 0.6s ease;
 }
 
-#future ul li {
-  margin-bottom: 6px;
-}
-/* ============================
-   ГЛАВНОЕ МЕНЮ — КНОПКИ
-============================ */
-
-.menu-button {
-  display: block;
-  text-decoration: none;
-  background: #d4af37;
-  color: #0f0f0f;
-  padding: 18px 25px;
-  font-size: 20px;
+.adult-title {
+  font-size: 28px;
   font-weight: 600;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
-  transition: 0.3s ease;
+  color: #d4af37;
+  margin-bottom: 10px;
+  text-align: left;
 }
 
-.menu-button:hover {
-  background: #f0d878;
-  box-shadow: 0 10px 24px rgba(212, 175, 55, 0.45);
-  transform: translateY(-3px);
+.adult-type-number {
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.adult-type-name {
+  color: #f0e6c8;
+}
+
+.gold-divider {
+  height: 2px;
+  background: linear-gradient(to right, #d4af37, #8c6f2f, #d4af37);
+  margin: 20px 0;
+  border-radius: 2px;
+}
+
+.adult-section {
+  margin-bottom: 20px;
+}
+
+.adult-section h3 {
+  color: #d4af37;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.close-types li {
+  margin-bottom: 6px;
+  color: #e6e6e6;
+}
+
+/* ========================= */
+/* СОВМЕСТИМОСТЬ */
+/* ========================= */
+
+.compat-card {
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 14px;
+  border: 1px solid #3a3a3a;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+  color: #e6e6e6;
+  margin-top: 25px;
+  animation: fadeIn 0.6s ease;
+}
+
+.compat-card h2 {
+  color: #d4af37;
+  margin-bottom: 15px;
+}
+
+.compat-card p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* ========================= */
+/* ИДЕАЛЬНЫЙ ПАРТНЁР */
+/* ========================= */
+
+.partner-card {
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 14px;
+  border: 1px solid #3a3a3a;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+  color: #e6e6e6;
+  margin-top: 25px;
+  animation: fadeIn 0.6s ease;
+}
+
+.partner-card h2 {
+  color: #d4af37;
+  margin-bottom: 15px;
+}
+
+.partner-card p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* ========================= */
+/* АНИМАЦИЯ */
+/* ========================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 480px) {
+  .site-header {
+    padding: 15px 0;
+    margin-bottom: 30px;
+  }
+
+  .site-title {
+    font-size: 26px;
+  }
+  .logo {
+    width: 90px;
+    margin-bottom: 16px;
+  }
+  body {
+    padding: 20px 10px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  input[type="date"] {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 17px;
+  }
+
+  .adult-card,
+  .compat-card,
+  .partner-card {
+    padding: 20px;
+  }
+
+  .adult-title {
+    font-size: 24px;
+  }
+
+  .adult-section h3 {
+    font-size: 18px;
+  }
+
+  .compat-icon {
+    font-size: 36px;
+    padding: 10px 14px;
+  }
+
+  .compat-plus {
+    font-size: 26px;
+  }
 }

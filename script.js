@@ -1,6 +1,17 @@
-/* ============================
-   ИКОНКИ ДЕТСКИХ ТИПОВ
-============================ */
+const adultIcons = {
+  1: "⚡",
+  2: "💛",
+  3: "📐",
+  4: "🎭",
+  5: "📘",
+  6: "🍃",
+  7: "🔥",
+  8: "❄️",
+  9: "🌊",
+  10: "🛡️",
+  11: "🌙",
+  12: "🎯",
+};
 
 const childIcons = {
   1: "⭐",
@@ -57,33 +68,57 @@ function getTypeIdByDate(date, dateRanges) {
 
 function renderResult(typeData) {
   return `
-    <h2>Тип ${typeData.id}</h2>
+    <div class="adult-card">
 
-    <div class="divider"></div>
+      <h2 class="adult-title">
+        <span class="adult-type-number">${adultIcons[typeData.id]} Тип ${typeData.id}</span>
+        <span class="adult-type-name">${typeData.name}</span>
+      </h2>
 
-    <p><strong>Эмоции:</strong> ${typeData.analysis.emotional_rhythm || typeData.analysis.emotions}</p>
-    <p><strong>Мышление:</strong> ${typeData.analysis.thinking}</p>
-    <p><strong>Сильные стороны:</strong> ${typeData.analysis.strengths}</p>
-    <p><strong>Риски:</strong> ${typeData.analysis.risks}</p>
-    <p><strong>Тень:</strong> ${typeData.analysis.shadow}</p>
+      <div class="gold-divider"></div>
 
-    <div class="divider"></div>
+      <div class="adult-section">
+        <h3>Эмоции</h3>
+        <p>${typeData.adult_analysis.emotions}</p>
+      </div>
 
-    <p><strong>Профессии:</strong> ${typeData.analysis.professions}</p>
+      <div class="adult-section">
+        <h3>Мышление</h3>
+        <p>${typeData.adult_analysis.thinking}</p>
+      </div>
 
-    <div class="divider"></div>
+      <div class="adult-section">
+        <h3>Сильные стороны</h3>
+        <p>${typeData.adult_analysis.strengths}</p>
+      </div>
 
-    <p><strong>Совет:</strong> ${typeData.analysis.advice}</p>
-    <p><strong>Прогноз:</strong> ${typeData.analysis.forecast}</p>
+      <div class="adult-section">
+        <h3>Риски</h3>
+        <p>${typeData.adult_analysis.risks}</p>
+      </div>
 
-    <div class="divider"></div>
+      <div class="adult-section">
+        <h3>Тень</h3>
+        <p>${typeData.adult_analysis.shadow}</p>
+      </div>
 
-    <p><strong>Близкие типы:</strong></p>
-    <ul>
-      ${typeData.close_types
-        .map((t) => `<li>Тип ${t.id}: ${t.reason}</li>`)
-        .join("")}
-    </ul>
+      <div class="adult-section">
+        <h3>Совет</h3>
+        <p>${typeData.adult_analysis.advice}</p>
+      </div>
+
+      <div class="gold-divider"></div>
+
+      <div class="adult-section">
+        <h3>Близкие типы</h3>
+        <ul class="close-types">
+          ${typeData.close_types
+            .map((t) => `<li><strong>Тип ${t.id}</strong> — ${t.reason}</li>`)
+            .join("")}
+        </ul>
+      </div>
+
+    </div>
   `;
 }
 
@@ -242,4 +277,98 @@ function showChildType(typeId) {
     .querySelector('.tabs button[data-tab="profile"]')
     .classList.add("active");
   document.getElementById("profile").classList.add("active");
+}
+/* ============================
+   ВЗРОСЛЫЕ — СОВМЕСТИМОСТЬ
+============================ */
+
+async function loadCompatibility() {
+  const response = await fetch("data/compatibility.json");
+  return await response.json();
+}
+
+async function calculateCompatibility() {
+  const date1 = document.getElementById("birthdate1").value;
+  const date2 = document.getElementById("birthdate2").value;
+
+  if (!date1 || !date2) {
+    document.getElementById("result").innerHTML = `
+      <div class="compat-card">
+        <h2>Ошибка</h2>
+        <p>Введите обе даты рождения для расчёта совместимости.</p>
+      </div>
+    `;
+    return;
+  }
+
+  const adultData = await loadData();
+  const compData = await loadCompatibility();
+
+  const typeId1 = getTypeIdByDate(new Date(date1), adultData.date_ranges);
+  const typeId2 = getTypeIdByDate(new Date(date2), adultData.date_ranges);
+
+  const key = `${typeId1}-${typeId2}`;
+  const compatibilityText = compData[key];
+
+  document.getElementById("result").innerHTML = `
+    <div class="compat-card">
+
+      <div class="compat-icons">
+        <div class="compat-icon">${adultIcons[typeId1]}</div>
+        <div class="compat-plus">∞</div>
+        <div class="compat-icon">${adultIcons[typeId2]}</div>
+      </div>
+
+      <div class="compat-divider"></div>
+
+      <h2>Совместимость типов ${typeId1} и ${typeId2}</h2>
+      <p>${compatibilityText || "Описание совместимости отсутствует."}</p>
+    </div>
+  `;
+}
+
+/* ============================
+   ВЗРОСЛЫЕ — ИДЕАЛЬНЫЙ ПАРТНЁР
+============================ */
+async function loadIdealPartner() {
+  const response = await fetch("data/ideal_partner.json");
+  return await response.json();
+}
+
+async function calculateIdealPartner() {
+  const date = document.getElementById("birthdate_partner").value;
+
+  if (!date) {
+    document.getElementById("result").innerHTML = `
+      <div class="partner-card">
+        <h2>Ошибка</h2>
+        <p>Введите дату рождения, чтобы увидеть идеального партнёра.</p>
+      </div>
+    `;
+    return;
+  }
+
+  const adultData = await loadData();
+  const idealData = await loadIdealPartner();
+
+  const typeId = getTypeIdByDate(new Date(date), adultData.date_ranges);
+  const ideal = idealData[typeId];
+
+  if (!ideal) {
+    document.getElementById("result").innerHTML = `
+      <div class="partner-card">
+        <h2>Нет данных</h2>
+        <p>Для этого типа нет информации об идеальном партнёре.</p>
+      </div>
+    `;
+    return;
+  }
+
+  document.getElementById("result").innerHTML = `
+    <div class="partner-card">
+      <h2>Идеальный партнёр для типа ${typeId}</h2>
+      <p><strong>Тип:</strong> ${ideal.type}</p>
+      <p><strong>Почему подходит:</strong> ${ideal.reason}</p>
+    </div>
+  `;
 }
