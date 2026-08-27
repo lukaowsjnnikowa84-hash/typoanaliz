@@ -2,61 +2,54 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <title>Взрослый типоанализ</title>
+    <title>ТипоАнализ — Взрослый анализ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
-
+    <script src="script.js" defer></script>
   </head>
 
   <body>
-    <h1>Взрослый типоанализ</h1>
+    <header class="site-header">
+      <a href="index.html" class="logo-link">
+        <img
+          src="generator/resources/logo.png"
+          alt="Логотип ТипоАнализ"
+          class="logo"
+        />
+      </a>
+      <h1 class="site-title">Взрослый типоанализ</h1>
+    </header>
 
     <div class="container">
-      <!-- Ввод даты -->
-      <label>Дата рождения:</label>
-      <br /><br />
+      <h2>Определение типа</h2>
+
       <input type="date" id="birthdate" />
-      <br />
       <button onclick="calculateType()">Определить тип</button>
 
-      <div id="result" style="margin-top: 25px"></div>
+      <div id="adult_result"></div>
 
       <div class="divider"></div>
 
-      <!-- Совместимость -->
-      <h2 style="color: #d4af37; margin-top: 30px">Совместимость</h2>
+      <h2>Совместимость типов</h2>
 
-      <label>Дата рождения 1:</label>
-      <br />
       <input type="date" id="birthdate1" />
-      <br /><br />
-
-      <label>Дата рождения 2:</label>
-      <br />
       <input type="date" id="birthdate2" />
-      <br />
-
       <button onclick="calculateCompatibility()">
         Рассчитать совместимость
       </button>
 
+      <div id="compat_result"></div>
+
       <div class="divider"></div>
 
-      <!-- Идеальный партнёр -->
-      <h2 style="color: #d4af37; margin-top: 30px">Идеальный партнёр</h2>
+      <h2>Идеальный партнёр</h2>
 
-      <label>Дата рождения:</label>
-      <br />
       <input type="date" id="birthdate_partner" />
-      <br />
-
       <button onclick="calculateIdealPartner()">
         Показать идеального партнёра
       </button>
-    </div>
 
-    <script src="script.js"></script>
+      <div id="partner_result"></div>
+    </div>
   </body>
 </html>

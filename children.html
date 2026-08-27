@@ -2,31 +2,53 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <title>Детский типоанализ</title>
+    <title>ТипоАнализ — Детский анализ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- Стили -->
     <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
   </head>
 
   <body>
-    <h1>Детский типоанализ</h1>
+    <header class="site-header">
+      <a href="index.html" class="logo-link">
+        <img
+          src="generator/resources/logo.png"
+          alt="Логотип ТипоАнализ"
+          class="logo"
+        />
+      </a>
+      <h1 class="site-title">Детский типоанализ</h1>
+    </header>
 
     <div class="container">
-      <!-- Ввод даты -->
-      <label>Дата рождения ребёнка:</label>
-      <br /><br />
+      <h2>Определение типа ребёнка</h2>
+
       <input type="date" id="child_birthdate" />
-      <br />
+      <input
+        type="text"
+        id="child_name"
+        placeholder="Имя ребёнка (необязательно)"
+      />
+      <select id="child_gender">
+        <option value="">Пол ребёнка (необязательно)</option>
+        <option value="boy">Мальчик</option>
+        <option value="girl">Девочка</option>
+      </select>
+
       <button onclick="calculateChildrenType()">Определить тип</button>
 
-      <!-- Результат -->
-      <div id="child_result" style="margin-top: 25px"></div>
+      <div class="divider"></div>
 
-      <!-- Выбор вручную -->
-      <h3 style="margin-top: 35px; color: #d4af37">Выбрать тип вручную:</h3>
+      <h3>Выбрать тип вручную</h3>
 
-      <div>
+      <div
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          justify-content: center;
+        "
+      >
         <button class="child-button" onclick="showChildType(1)">Тип 1</button>
         <button class="child-button" onclick="showChildType(2)">Тип 2</button>
         <button class="child-button" onclick="showChildType(3)">Тип 3</button>
@@ -40,9 +62,8 @@
         <button class="child-button" onclick="showChildType(11)">Тип 11</button>
         <button class="child-button" onclick="showChildType(12)">Тип 12</button>
       </div>
-    </div>
 
-    <!-- Скрипт -->
-    <script src="script.js"></script>
+      <div id="child_result"></div>
+    </div>
   </body>
 </html>

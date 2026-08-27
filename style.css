@@ -102,6 +102,24 @@ input[type="date"] {
 /* ========================= */
 /* ПРЕМИУМ КНОПКИ */
 /* ========================= */
+.menu-button {
+  display: block;
+  background: #2a2a2a;
+  color: #d4af37;
+  border: 1px solid #8c6f2f;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-size: 18px;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.menu-button:hover {
+  background: #3a3a3a;
+  color: #f5d98c;
+  border-color: #d4af37;
+  transform: translateY(-2px);
+}
 
 button {
   background: #2a2a2a;
