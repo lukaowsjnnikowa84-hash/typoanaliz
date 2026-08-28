@@ -34,14 +34,10 @@
 /* ========================= */
 /* ОБЩИЙ СТИЛЬ САЙТА */
 /* ========================= */
-
 body {
-  font-family: "Cormorant Garamond", serif;
-  background: #0f0f0f;
-  color: #d4af37;
-  margin: 0;
-  text-align: center;
-  padding: 40px 20px;
+  background-color: #fff4e6;
+  color: #4a3f35;
+  font-family: "Segoe UI", sans-serif;
 }
 .logo {
   width: 120px;
@@ -170,29 +166,212 @@ button:active {
 }
 
 .child-card {
-  background: linear-gradient(135deg, #fff7e6, #ffe9c4);
-  border: 3px solid #f3c26b;
-  border-radius: 18px;
-  padding: 22px;
-  margin: 20px 0;
-  box-shadow: 0 6px 18px rgba(255, 200, 120, 0.45);
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+  background: #fff8f0;
+  border: 1px solid #e6d7c3;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  text-align: left; /* ← главное правило */
+}
+
+.child-card h2,
+.child-card h3 {
+  text-align: left;
+  display: block;
+}
+
+/* ========================= */
+/* ПРЕМИУМ-УКРАШЕНИЯ */
+/* ========================= */
+
+/* Иконки для каждого раздела */
+.child-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #a1743b;
+  text-shadow: 0 0 6px rgba(212, 175, 55, 0.35);
+}
+
+.child-card h3::before {
+  content: "✨";
+  font-size: 20px;
+  color: #d4af37;
+}
+
+/* Премиум-иконки для каждого раздела */
+.child-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #a1743b;
+  text-shadow: 0 0 6px rgba(212, 175, 55, 0.35);
+}
+
+/* Иконки по разделам */
+.child-card h3[data-section="profile"]::before {
+  content: "🌿";
+  color: #d4af37;
+}
+
+.child-card h3[data-section="emotions"]::before {
+  content: "💛";
+  color: #d4af37;
+}
+
+.child-card h3[data-section="thinking"]::before {
+  content: "🧠";
+  color: #d4af37;
+}
+
+.child-card h3[data-section="strengths"]::before {
+  content: "⭐";
+  color: #d4af37;
+}
+
+.child-card h3[data-section="risks"]::before {
+  content: "⚠";
+  color: #d4af37;
+}
+
+.child-card h3[data-section="shadow"]::before {
+  content: "🌑";
+  color: #d4af37;
+}
+
+.child-card h3[data-section="inclinations"]::before {
+  content: "🎯";
+  color: #d4af37;
+}
+
+.child-card h3[data-section="future"]::before {
+  content: "🧩";
+  color: #d4af37;
+}
+
+.child-card h3[data-section="advice"]::before {
+  content: "👨‍👩‍👧";
+  color: #d4af37;
+}
+
+.child-card h3[data-section="forecast"]::before {
+  content: "🔮";
+  color: #d4af37;
+}
+
+.child-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  background: linear-gradient(135deg, #ffe7b3, #ffd27f);
+  border-radius: 50%;
+
+  font-size: 24px;
+  color: #7a4300;
+
+  box-shadow: 0 4px 12px rgba(255, 200, 120, 0.45);
+  margin-right: 10px;
+
+  border: 2px solid #d4af37;
+}
+
+/* Премиальные золотые маркеры списков */
+.child-card ul li {
+  list-style: none;
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 10px;
+}
+
+.child-card ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #d4af37;
+  font-size: 22px;
+  line-height: 18px;
+  font-weight: 700;
+}
+
+/* Золотые разделители */
+.child-divider {
+  height: 2px;
+  background: linear-gradient(to right, #d4af37, #f3c26b, #d4af37);
+  margin: 24px 0;
+  border-radius: 2px;
+  opacity: 0.9;
+}
+
+/* Премиальная тень карточки */
+.child-card {
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.28);
+}
+
+/* Плавное появление внутренних элементов */
+.child-card * {
+  animation: fadeInChild 0.6s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInChild {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Добавляем выравнивание текста */
+.child-card p,
+.child-card li {
+  text-align: left;
+  color: #3a2a00;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.6; /* ← добавляем сюда */
+}
+
+.child-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.child-card h2,
+.child-card h3 {
+  text-align: left;
+  display: block; /* ← ключевой момент */
+}
+
+.child-card h2 {
+  color: #b38b59;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.child-card h3 {
+  color: #a1743b;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.child-card ul {
+  margin-left: 20px;
+  margin-bottom: 10px;
 }
 
 .child-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 22px rgba(255, 180, 80, 0.55);
-}
-
-.child-card h2 {
-  color: #d48b00;
-  font-size: 26px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
 
 .child-icon {
@@ -207,12 +386,6 @@ button:active {
   color: #7a4300;
   box-shadow: 0 4px 10px rgba(255, 200, 120, 0.45);
   margin-right: 10px;
-}
-
-.child-card p {
-  color: #5a3e00;
-  font-size: 16px;
-  line-height: 1.6;
 }
 
 .child-divider {
@@ -496,5 +669,40 @@ button:active {
 
   .compat-plus {
     font-size: 26px;
+  }
+
+  .child-card {
+    background: #fff8f0;
+    border: 1px solid #e6d7c3;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 650px;
+    margin: 20px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    color: #4a3f35;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .child-card h2 {
+    color: #b38b59;
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+
+  .child-card h3 {
+    color: #a1743b;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .child-card ul {
+    margin-left: 20px;
+  }
+
+  #child_result {
+    max-width: 700px;
+    margin: 30px auto;
+    text-align: left;
   }
 }
